@@ -57,9 +57,9 @@ void ledc_fade(uint8_t channel, uint32_t target_duty, uint32_t duration)
 }
 
 // 缓存中断前的状态
-LED_STATE last_state = LED_STATE::START;
+volatile LED_STATE last_state = LED_STATE::START;
 // 当前状态
-LED_STATE led_state = LED_STATE::START;
+volatile LED_STATE led_state = LED_STATE::START;
 
 // 中断处理函数
 void IRAM_ATTR interrupt_handler()
